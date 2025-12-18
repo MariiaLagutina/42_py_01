@@ -7,30 +7,19 @@ class Plant:
 
 def ft_plant_factory() -> None:
     orders = [
-        {"name": "Rose", "h": 25, "d": 30},
-        {"name": "Peony", "h": 20, "d": 5},
-        {"name": "Cactus", "h": 9, "d": 300},
-        {"name": "Sunflower", "h": 210, "d": 65},
-        {"name": "Orchid", "h": 55, "d": 120}
+        {"name": "Rose", "height": 25, "age": 30},
+        {"name": "Peony", "height": 20, "age": 5},
+        {"name": "Cactus", "height": 9, "age": 300},
+        {"name": "Sunflower", "height": 210, "age": 65},
+        {"name": "Orchid", "height": 55, "age": 120}
     ]
 
     print("=== Plant Factory Output ===")
-    count = 0
-
     for order in orders:
-        p_name = order["name"]
-        p_height = order["h"]
-        p_age = order["d"]
+        plant = Plant(**order)
+        print(f"Created: {plant.name} ({plant.height}cm, {plant.age} days)")
 
-        new_plant = Plant(p_name, p_height, p_age)
-
-        print(f"Created: {new_plant.name} ", end="")
-        print(f"({new_plant.height}cm, {new_plant.age} days)")
-
-        count += 1
-
-    print()
-    print(f"Total plants created: {count}")
+    print(f"\nTotal plants created: {len(orders)}")
 
 
 if __name__ == "__main__":
