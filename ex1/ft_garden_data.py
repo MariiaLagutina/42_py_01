@@ -1,8 +1,11 @@
 class Plant:
-    def __init__(self, name: str, height: int, days: int) -> None:
+    def __init__(self, name: str, height: int, age: int) -> None:
         self.name = name
         self.height = height
-        self.days = days
+        self.age = age
+
+    def display(self) -> None:
+        print(f"{self.name}: {self.height}cm, {self.age} days old")
 
 
 def ft_garden_data() -> None:
@@ -11,9 +14,9 @@ def ft_garden_data() -> None:
     plant_3 = Plant("Cactus", 15, 120)
 
     print("=== Garden Plant Registry ===")
-    print(f"{plant_1.name}: {plant_1.height}cm, {plant_1.days} days old")
-    print(f"{plant_2.name}: {plant_2.height}cm, {plant_2.days} days old")
-    print(f"{plant_3.name}: {plant_3.height}cm, {plant_3.days} days old")
+    plant_1.display()
+    plant_2.display()
+    plant_3.display()
 
 
 if __name__ == "__main__":
