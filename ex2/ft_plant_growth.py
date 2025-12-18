@@ -1,17 +1,25 @@
 class Plant:
-    def __init__(self, name: str, height: int, days: int) -> None:
+    def __init__(self, name: str, height: int, age: int) -> None:
         self.name = name
         self.height = height
-        self.days = days
+        self.age = age
 
     def grow(self) -> None:
         self.height += 1
 
-    def age(self) -> None:
-        self.days += 1
+    def grow_older(self) -> None:
+        self.age += 1
 
     def get_info(self) -> str:
-        return f"{self.name}: {self.height}cm, {self.days} days old"
+        return f"{self.name}: {self.height}cm, {self.age} days old"
+    
+    def simulate_day(self) -> None:
+        self.grow()
+        self.grow_older()
+
+    def simulate_days(self, days: int) -> None:
+        for _ in range(days):
+            self.simulate_day()
 
 
 def ft_plant_growth() -> None:
@@ -26,10 +34,8 @@ def ft_plant_growth() -> None:
     for plant in garden:
         print(plant.get_info())
 
-    for _ in range(6):
-        for plant in garden:
-            plant.grow()
-            plant.age()
+    for plant in garden:
+        plant.simulate_days(6)
 
     print("=== Day 7 ===")
     for i, plant in enumerate(garden):
