@@ -4,6 +4,7 @@ class Plant:
         self.height = height
         self.age = age
 
+
 class Flower(Plant):
     def __init__(self, name: str, height: int, age: int, color: str) -> None:
         super().__init__(name, height, age)
@@ -12,14 +13,17 @@ class Flower(Plant):
     def bloom(self) -> None:
         print(f"{self.name} is blooming beautifully!")
 
+
 class Tree(Plant):
-    def __init__(self, name: str, height: int, age: int, trunk_diameter: int) -> None:
+    def __init__(self, name: str, height: int, age: int,
+                 trunk_diameter: int) -> None:
         super().__init__(name, height, age)
         self.trunk_diameter = trunk_diameter
 
     def produce_shade(self) -> None:
-        shade_area = (self.height / 100) * (self.trunk_diameter / 100) * 3.14 * 10 
+        shade_area = (self.height) * (self.trunk_diameter) * 3.14 / 1000
         print(f"{self.name} provides {shade_area:.1f} square meters of shade")
+
 
 class Vegetable(Plant):
     def __init__(self, name: str, height: int, age: int,
@@ -44,17 +48,20 @@ def ft_plant_types() -> None:
 
     garden = [rose, tulip, oak, pine, tomato, carrot]
 
-    print("=== Garden Plant Types ===")
+    print("=== Garden Plant Types ===\n")
     for plant in garden:
         if isinstance(plant, Flower):
-            print(f"{plant.name} (Flower): {plant.height}cm, {plant.age} days, {plant.color} color")
+            print(f"{plant.name} (Flower): {plant.height}cm, {plant.age} "
+                  f"days, {plant.color} color")
             plant.bloom()
         elif isinstance(plant, Tree):
-            print(f"{plant.name} (Tree): {plant.height}cm, {plant.age} days, {plant.trunk_diameter}cm diameter")
+            print(f"{plant.name} (Tree): {plant.height}cm, {plant.age} days,"
+                  f"{plant.trunk_diameter}cm diameter")
             plant.produce_shade()
         elif isinstance(plant, Vegetable):
-            print(f"{plant.name} (Vegetable): {plant.height}cm, {plant.age} days, {plant.harvest_season} harvest")
-            plant.nutrition() 
+            print(f"{plant.name} (Vegetable): {plant.height}cm, "
+                  f"{plant.age} days, {plant.harvest_season} harvest")
+            plant.nutrition()
         print()
 
 
