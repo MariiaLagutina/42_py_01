@@ -1,11 +1,20 @@
+#!/usr/bin/env python3
+
 class Plant:
+    """
+    A class used to represent a plant with its physical characteristics.
+    """
     def __init__(self, name: str, height: int, age: int) -> None:
+        """Initializes the plant with name, height, and age."""
         self.name = name
         self.height = height
         self.age = age
 
 
 def ft_plant_factory() -> None:
+    """
+    Creates multiple plants from a data set and displays their information.
+    """
     orders = [
         {"name": "Rose", "height": 25, "age": 30},
         {"name": "Peony", "height": 20, "age": 5},

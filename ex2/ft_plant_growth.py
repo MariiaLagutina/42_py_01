@@ -1,28 +1,45 @@
+#!/usr/bin/env python3
+
 class Plant:
-    def __init__(self, name: str, height: int, age: int) -> None:
+    """
+    A class used to represent a plant with its physical characteristics.
+    """
+    def __init__(self, name: str, height: int, age_days: int) -> None:
+        """Initializes the plant with name, height, and age."""
         self.name = name
         self.height = height
-        self.age = age
+        self.age_days = age_days
 
     def grow(self) -> None:
+        """Increases the height of the plant."""
         self.height += 1
 
-    def grow_older(self) -> None:
-        self.age += 1
+    def age(self) -> None:
+        """Increases the age of the plant by one day."""
+        self.age_days += 1
 
     def get_info(self) -> str:
-        return f"{self.name}: {self.height}cm, {self.age} days old"
-    
+        """Returns a string representation of the plant's current status."""
+        return f"{self.name}: {self.height}cm, {self.age_days} days old"
+
     def simulate_day(self) -> None:
+        """Simulates a single day of growth and aging."""
         self.grow()
-        self.grow_older()
+        self.age()
 
     def simulate_days(self, days: int) -> None:
+        """
+        Simulates plant growth over a specified number of days.
+        """
         for _ in range(days):
             self.simulate_day()
 
 
 def ft_plant_growth() -> None:
+    """
+    Main function that simulates a week of growth for a garden
+    and prints results.
+    """
     plant_1 = Plant("Rose", 25, 30)
     plant_2 = Plant("Sunflower", 80, 45)
     plant_3 = Plant("Cactus", 15, 120)
@@ -46,3 +63,14 @@ def ft_plant_growth() -> None:
 
 if __name__ == "__main__":
     ft_plant_growth()
+
+# EXPLANATION OF ENUMERATE:
+    #: enumerate()
+    # Gives us the index (i) AND the plant object at the same time.
+    # We need 'i' to find the matching start height in 'original_heights'.
+    #
+    # (Manual Index):
+    # for i in range(len(garden)):
+    #     plant = garden[i]
+    #     growth = plant.height - original_heights[i]
+    #     ...
